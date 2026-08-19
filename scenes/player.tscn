@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cf3o1cgppb80x"]
+
+[ext_resource type="Script" uid="uid://ba2bfxp4pqk7g" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://dlfrscgd3rx4u" path="res://assets/Knight.glb" id="2_g2els"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ouxqx"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1027953005]
+script = ExtResource("1_g2els")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=500868893]
+
+[node name="Knight" parent="Pivot" unique_id=792863002 instance=ExtResource("2_g2els")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=869675426]
+shape = SubResource("SphereShape3D_ouxqx")
