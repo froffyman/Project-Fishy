@@ -1,16 +1,30 @@
 [gd_scene format=3 uid="uid://bi2nbs883jfxm"]
 
-[ext_resource type="PackedScene" uid="uid://cf3o1cgppb80x" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://c0eod1vqv0lpm" path="res://assets/Screenshot (2).png" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://bsknq8hruadhp" path="res://scenes/MovingEntity.tscn" id="2_sugp2"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_sugp2"]
+panorama = ExtResource("2_0wfyh")
+
+[sub_resource type="Sky" id="Sky_0wfyh"]
+sky_material = SubResource("PanoramaSkyMaterial_sugp2")
+
+[sub_resource type="Environment" id="Environment_o5qli"]
+background_mode = 2
+sky = SubResource("Sky_0wfyh")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ql725"]
+size = Vector3(109.119675, 0.48339844, 172.40326)
 
 [node name="Main" type="Node3D" unique_id=1257158101]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0052706003, 0, 0)
 
-[node name="Player" parent="." unique_id=1027953005 instance=ExtResource("1_o5qli")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1632522487]
+environment = SubResource("Environment_o5qli")
 
-[node name="CameraPivot" type="Marker3D" parent="." unique_id=1125685625]
+[node name="MovingEntity" parent="." unique_id=351611373 instance=ExtResource("2_sugp2")]
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=287601271]
-transform = Transform3D(1, 0, 0, 0, 0.9997696, -0.02146316, 0, 0.02146316, 0.9997696, 0, 0, 245.35788)
-projection = 1
-fov = 1.0
-size = 19.0
+[node name="Camera3D" type="Camera3D" parent="MovingEntity" unique_id=1404898956]
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1974739067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.273663, -0.57558274, -37.247257)
+mesh = SubResource("BoxMesh_ql725")

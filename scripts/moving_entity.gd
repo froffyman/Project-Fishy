@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const MOVE_SPEED = 20.0
 const ROTATE_SPEED = PI
-const MOUSE_SENSITIVITY = .04
+const MOUSE_SENSITIVITY = .01
 
 func _input(e):
 	if e is InputEventMouseMotion:
